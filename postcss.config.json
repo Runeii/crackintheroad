@@ -1,0 +1,16 @@
+{
+  "plugins": [
+    [
+      "postcss-preset-env",
+      {
+        "stage": 1,
+      }
+    ],
+    [
+      "postcss-mixins",
+      {
+        "mixinsFiles": "./src/styles/mixins.pcss"
+      }
+    ]
+  ]
+}

@@ -1,0 +1,77 @@
+.menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: var(--highlight);
+  z-index: 10;
+  overflow-y: scroll;
+
+  @include breakpoint(small) {
+    overflow: hidden;
+  }
+}
+
+.wrapper {
+  display: grid;
+  grid-template-areas: "header header" "bio bio" "years categories";
+  grid-template-rows: min-content min-content auto;
+  grid-template-columns: 25% 1fr;
+  width: 100%;
+  color: var(--highlight-dark);
+  @include breakpoint(small) {
+    height: 100vh;
+    grid-template-rows: min-content min-content auto;
+  }
+  /*
+  li {
+    list-style: none;
+    display: block;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+  */
+}
+
+.header {
+  grid-area: header;
+  width: 100%;
+}
+
+.bio {
+  grid-area: bio;
+  padding: 12px 0 48px;
+}
+
+.years {
+  grid-area: years;
+}
+
+.categoriesBox {
+  position: relative;
+  grid-area: categories;
+  height: 100%;
+}
+
+.categories {
+  position: relative;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding-bottom: 32px;
+  @include breakpoint(small) {
+    position: absolute;
+    flex-wrap: wrap;
+    padding-bottom: 0;
+  }
+}

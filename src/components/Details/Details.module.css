@@ -1,0 +1,43 @@
+.frame {
+  position: relative;
+  padding-top: 20px;
+  line-height: 1.4;
+}
+
+.title {
+  font-size: inherit;
+
+  .artist {
+    display: block;
+  }
+
+  .track {
+    color: var(--grey);
+    display: block;
+    font-weight: 400;
+  }
+}
+
+.details {
+  display: flex;
+  flex-flow: column;
+  align-items: flex-start;
+  font-size: var(--caption);
+  white-space: nowrap;
+  color: var(--grey);
+  margin: 20px 0;
+
+  @include breakpoint(medium) {
+    font-size: var(--h6);
+  }
+  /*
+  p {
+    margin: 0;
+  }
+
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+  */
+}
