@@ -1,0 +1,9 @@
+.cache
+node_modules
+npm-debug.log
+.next
+.vscode
+out
+src-attemptone
+public/uploads
+tools/output

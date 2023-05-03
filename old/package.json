@@ -1,0 +1,49 @@
+{
+  "name": "crackintheroad",
+  "version": "0.1.0",
+  "description": "",
+  "scripts": {
+    "dev": "next",
+    "build": "next build",
+    "postbuild": "node cache.js",
+    "start": "next start",
+    "export": "next export",
+    "sitemap": "node generateSitemap.js",
+    "deploy": "NODE_ENV=production npm run build && npm run export && npm run sitemap",
+    "analyze": "cross-env ANALYZE=true next build",
+    "analyze:server": "cross-env BUNDLE_ANALYZE=server next build",
+    "analyze:browser": "cross-env BUNDLE_ANALYZE=browser next build"
+  },
+  "resolve": {
+    "alias": {
+      "react": "preact-compat",
+      "react-dom": "preact-compat"
+    }
+  },
+  "license": "MIT",
+  "dependencies": {
+    "@next/bundle-analyzer": "13.2.4",
+    "date-fns": "2.29.3",
+    "next": "13.2.4",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-lazy-images": "github:fpapado/react-lazy-images#master",
+    "xmlbuilder2": "3.0.2"
+  },
+  "devDependencies": {
+    "babel-preset-nano-react-app": "^0.1.0",
+    "cache-me-outside": "0.0.10",
+    "eslint-config-airbnb": "18.0.1",
+    "eslint-config-prettier": "6.7.0",
+    "eslint-plugin-babel": "5.3.0",
+    "eslint-plugin-jest": "23.0.4",
+    "eslint-plugin-prettier": "3.1.1",
+    "eslint-plugin-react-hooks": "1.7.0",
+    "favicons": "^6.0.0",
+    "glob": "^7.1.6",
+    "globby": "^11.0.0",
+    "prettier": "1.17.0",
+    "prettier-eslint-cli": "4.7.1",
+    "sass": "^1.26.3"
+  }
+}
