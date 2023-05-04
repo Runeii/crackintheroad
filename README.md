@@ -7,3 +7,5 @@ Small fixes that could be tackled one day:
 [ ] Categories load all data immediately, though do not render as elements.
 
 [ ] Add notice that shows last time snapshot shuffled
+
+[ ] Hit Netlify webhook once per week
