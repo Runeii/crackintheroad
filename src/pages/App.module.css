@@ -3,7 +3,7 @@
   margin: 0 auto 72px;
   max-width: var(--xlarge);
 
-  @include breakpoint(small) {
+  @mixin breakpoint-small {
     padding: 0 44px;
   }
 }

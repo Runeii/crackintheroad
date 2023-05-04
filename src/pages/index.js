@@ -1,5 +1,3 @@
-import styles from './Index.module.css';
-import fetch from 'node-fetch'
 import React from 'react';
 import Archive from '../components/Archive/Archive';
 
@@ -8,9 +6,11 @@ const Index = ({ posts }) => (
 );
 
 export async function getStaticProps() {
-  const res = await fetch(`${process.env.API_URL}/posts/index`);
-  const posts = await res.json();
-  console.log(`${process.env.API_URL}/posts/index`)
+  const json = require('../../public/api/posts/index.json')
+
+  const index = json.filter(post => post.hasImage).sort(() => 0.5 - Math.random()).slice(0, 40);
+  const posts = index.map(post => require(`../../public/api/posts/${post.slug}.json`));
+
   return {
     props: {
       posts,

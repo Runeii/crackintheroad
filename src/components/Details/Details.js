@@ -1,9 +1,11 @@
 import styles from './Details.module.css';
 import React from 'react';
 import Link from 'next/link';
+import { format } from 'date-fns';
 
 const formatTitle = title => {
   const hyphenSplit = title.split(' – ');
+
   if (hyphenSplit.length === 2) {
     const [artist, track] = hyphenSplit;
     const cleanArtist = artist
@@ -22,6 +24,8 @@ const formatTitle = title => {
 const Details = ({ className, hasAuthor, heading, post }) => {
   const HTag = heading;
   const { artist, track, title } = formatTitle(post.title);
+  const date = format(post.date, 'do MMM yyy');
+
   return (
     <div className={`${styles.frame} ${className}`}>
       <HTag className={styles.title}>
@@ -31,12 +35,7 @@ const Details = ({ className, hasAuthor, heading, post }) => {
       </HTag>
       {hasAuthor && post.author && (
         <div className={styles.details}>
-          <p>{post.date}</p>
-          <p>
-            <Link as={`/author/${post.author.slug}`} href="/author/[slug]">
-              <a >{post.author.name}</a>
-            </Link>
-          </p>
+          <p className={styles.date}>{date}</p>
         </div>
       )}
     </div>

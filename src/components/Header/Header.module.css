@@ -9,15 +9,9 @@
   background-color: var(--background);
   z-index: 2;
 
-  @include breakpoint(medium) {
+  @mixin breakpoint-medium {
     position: sticky;
   }
-  /*
-  a {
-    color: inherit;
-    text-decoration: none;
-  }
-*/
   &.invert {
     border-color: var(--highlight-dark);
     background-color: transparent;
@@ -25,6 +19,10 @@
   }
 }
 
+.link {
+  color: inherit;
+  text-decoration: none;
+}
 .title {
   font-family: "Jost", "Futura", "Montserrat", "Open Sans", "Helvetica",
     sans-serif;
@@ -33,7 +31,7 @@
   letter-spacing: 2px;
   word-break: break-word;
   hyphens: none;
-  @include breakpoint(small) {
+  @mixin breakpoint-small {
     font-size: 24px;
   }
 }
@@ -49,7 +47,7 @@
       color: inherit;
       padding-right: 12px;
       white-space: nowrap;
-      @include breakpoint(small) {
+      @mixin breakpoint-small {
         content: "(dark mode active)";
 
         .force-light & {
@@ -69,7 +67,8 @@
   padding: 4px 12px;
   cursor: pointer;
   text-align: center;
-  @include breakpoint(small) {
+
+  @mixin breakpoint-small {
     padding: 4px 20px;
     width: 52px;
   }

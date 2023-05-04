@@ -6,10 +6,11 @@
   --highlight: #fcddd3;
   --grey: gray;
   --black: rgb(20, 20, 20);
-  --small: #{map-get($breakpoints, "small")};
-  --medium: #{map-get($breakpoints, "medium")};
-  --large: #{map-get($breakpoints, "large")};
-  --xlarge: #{map-get($breakpoints, "xlarge")};
+  --mobile: 512px;
+  --small: 768px;
+  --medium: 992px;
+  --large: 1200px;
+  --xlarge: 1388px;
 }
 
 :root {

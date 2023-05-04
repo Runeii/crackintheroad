@@ -18,10 +18,6 @@ const App = ({ Component, pageProps }) => {
     };
     testWebP()
   }, []);
-  useEffect(() => {
-    const { href, pathname } = window.location;
-    fetch(`${process.env.API_URL}/posts/note?href=${href}&path=${pathname}&title=${document.title}`);
-  }, [pageProps]);
 
   return (
     <div className={styles.wrapper}>

@@ -29,7 +29,7 @@ const Header = ({ className, isInverted, onClose, page }) => {
     <>
       <header className={`${className} ${styles.header} ${isInverted ? styles.invert : ''}`}>
         <Head>
-          <meta charset="utf-8" />
+          <meta charSet="utf-8" />
           <title key="title">{title}</title>
           <meta key="description" name="description" content={description} />
           <meta name="viewport" content="initial-scale=1.0, width=device-width" />
@@ -78,7 +78,7 @@ const Header = ({ className, isInverted, onClose, page }) => {
           <meta name="msapplication-config" content="/favicons/browserconfig.xml" />
           <link rel="yandex-tableau-widget" href="/favicons/yandex-browser-manifest.json" />
         </Head>
-        <Link as="/" href="/">
+        <Link className={styles.link} as="/" href="/">
           <h1 className={styles.title}>Crack in the Road</h1>
         </Link>
         <span className={styles.darkmode} onClick={toggleDarkMode} />

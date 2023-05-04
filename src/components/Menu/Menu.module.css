@@ -8,7 +8,7 @@
   z-index: 10;
   overflow-y: scroll;
 
-  @include breakpoint(small) {
+  @mixin breakpoint-small {
     overflow: hidden;
   }
 }
@@ -20,21 +20,20 @@
   grid-template-columns: 25% 1fr;
   width: 100%;
   color: var(--highlight-dark);
-  @include breakpoint(small) {
+  @mixin breakpoint-small {
     height: 100vh;
     grid-template-rows: min-content min-content auto;
   }
-  /*
-  li {
+
+  .item {
     list-style: none;
     display: block;
   }
+}
 
-  a {
-    color: inherit;
-    text-decoration: none;
-  }
-  */
+.link {
+  color: inherit;
+  text-decoration: none;
 }
 
 .header {
@@ -69,7 +68,7 @@
   align-items: flex-start;
   justify-content: flex-start;
   padding-bottom: 32px;
-  @include breakpoint(small) {
+  @mixin breakpoint-small {
     position: absolute;
     flex-wrap: wrap;
     padding-bottom: 0;

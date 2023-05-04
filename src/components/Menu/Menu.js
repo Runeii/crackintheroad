@@ -10,8 +10,8 @@ const Menu = ({ isOpen, onClose }) => {
 
   useEffect(() => {
     const getOptions = async () => {
-      const res = await fetch(`${process.env.API_URL}/categories/menu`)
-      const { cats, years } = await res.json();
+      const cats = await (await fetch(`/api/categories.json`)).json()
+      const years = await (await fetch(`/api/dates/years.json`)).json()
 
       setCategories(cats);
       setYears(years);
@@ -36,8 +36,8 @@ const Menu = ({ isOpen, onClose }) => {
         </div>
         <div className={styles.years}>
           {years.map(year => (
-            <li>
-              <Link as={`/archive/${year}`} href="/archive/[year]">
+            <li key={year} className={styles.item}>
+              <Link as={`/archive/${year}`} href="/archive/[year]" className={styles.link}>
                 {year}
               </Link>
             </li>
@@ -46,9 +46,8 @@ const Menu = ({ isOpen, onClose }) => {
         <div className={styles.categoriesBox}>
           <div className={styles.categories}>
             {categories.map(cat => (
-              <li>
-
-                <Link as={`/${cat.slug}`} href="/[category]">
+              <li className={styles.item} key={cat.slug}>
+                <Link as={`/${cat.slug}`} href="/[category]" className={styles.link}>
                   {cat.name}
                 </Link>
               </li>

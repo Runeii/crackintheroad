@@ -25,19 +25,24 @@
   font-size: var(--caption);
   white-space: nowrap;
   color: var(--grey);
-  margin: 20px 0;
+  margin: calc(var(--caption) / 2) 0 0;
 
-  @include breakpoint(medium) {
+  @mixin breakpoint-medium {
     font-size: var(--h6);
   }
-  /*
-  p {
+
+  .date,
+  .author {
     margin: 0;
   }
 
-  a {
+  .date {
+    font-size: var(--caption);
+    opacity: 0.8;
+  }
+
+  .author {
     text-decoration: none;
     color: inherit;
   }
-  */
 }

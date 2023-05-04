@@ -6,11 +6,11 @@
   grid-template-columns: 1fr 100% 1fr;
   row-gap: 36px;
 
-  @include breakpoint(small) {
+  @mixin breakpoint-small {
     grid-template-columns: 1fr 84% 1fr;
   }
 
-  @include breakpoint(medium) {
+  @mixin breakpoint-medium {
     grid-template-columns: 1fr 66% 1fr;
     row-gap: 64px;
   }
@@ -34,35 +34,4 @@
   align-items: center;
   grid-area: content;
   font-size: var(--h5);
-
-  /*
-  a {
-    color: var(--highlight-dark);
-  }
-
-  strong {
-    font-weight: 500;
-  }
-
-  img {
-    width: 100%;
-
-    @include breakpoint(small) {
-      margin: 0 -64px 40px;
-    }
-  }
-
-  iframe {
-    width: 100% !important;
-    max-width: 100%;
-  }
-
-  *:not(img) {
-    width: 100%;
-
-    @include breakpoint(large) {
-      width: 75%;
-    }
-  }
-  */
 }

@@ -1,36 +1,38 @@
 import Archive from '../../../components/Archive/Archive';
-import fetch from 'node-fetch'
 
 const Index = Archive;
 
-export async function getStaticProps({ params }) {
-  const pageUrl = `${process.env.API_URL}/posts/archive/${params.year}/all`;
-  const res = await fetch(pageUrl);
-  const posts = await res.json();
+export async function getStaticProps({ params: { year } }) {
+  const years = require(`../../../../public/api/dates/years.json`).map(year => year.toString());
 
-  const res2 = await fetch(`${process.env.API_URL}/posts/timeline`)
-  const dates = await res2.json();
-  const years = Object.keys(dates.reduce((all, current) => ({
-    ...all,
-    [current._id.year]: null,
-  }), {}));
+  const start = new Date();
+  start.setFullYear(year, 0, 1);
+  start.setHours(0, 0, 0, 0);
+
+  const end = new Date();
+  end.setFullYear(year, 11, 31);
+  end.setHours(23, 59, 59, 999);
+
+  const startTime = start.getTime();
+  const endTime = end.getTime();
+
+
+  const posts = require(`../../../../public/api/posts/index.json`);
+  const filtered = posts.filter(post => post.date > startTime && post.date < endTime);
+  const fullPosts = filtered.map(post => require(`../../../../public/api/posts/${post.slug}.json`));
+
   return {
     props: {
-      pageUrl,
-      posts,
-      year: params.year,
+      posts: fullPosts,
+      year,
       years
     },
   }
 }
 
 export async function getStaticPaths() {
-  const res = await fetch(`${process.env.API_URL}/posts/timeline`)
-  const dates = await res.json();
-  const years = Object.keys(dates.reduce((all, current) => ({
-    ...all,
-    [current._id.year]: null,
-  }), {}));
+  const years = require(`../../../../public/api/dates/years.json`).map(year => year.toString());
+
   const paths = years.map(year => {
     return {
       params: {
@@ -38,7 +40,6 @@ export async function getStaticPaths() {
       }
     }
   })
-
   return {
     paths,
     fallback: false

@@ -10,26 +10,25 @@
   column-gap: 36px;
   font-size: var(--h6);
 
-  @include breakpoint(small) {
+  @mixin breakpoint-small {
     grid-template-columns: 1fr 1fr 1fr;
   }
 
-  @include breakpoint(medium) {
+  @mixin breakpoint-medium {
     grid-template-columns: 1fr 1fr 1fr 1fr;
   }
 
-  @include breakpoint(large) {
+  @mixin breakpoint-large {
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
   }
-  /*
-  a {
+
+  .tile {
     display: flex;
     flex-direction: column;
     justify-content: center;
     color: inherit;
     text-decoration: none;
   }
-  */
 }
 
 .next {
