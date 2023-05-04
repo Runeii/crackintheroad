@@ -1,0 +1,30 @@
+.post-content {
+  a {
+    color: var(--highlight-dark);
+  }
+
+  strong {
+    font-weight: 500;
+  }
+
+  img {
+    width: 100%;
+
+    @mixin breakpoint-small {
+      margin: 0 -64px 40px;
+    }
+  }
+
+  iframe {
+    width: 100% !important;
+    max-width: 100%;
+  }
+
+  *:not(img) {
+    width: 100%;
+
+    @mixin breakpoint-large {
+      width: 75%;
+    }
+  }
+}

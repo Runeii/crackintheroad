@@ -1,0 +1,48 @@
+.frame {
+  position: relative;
+  padding-top: 20px;
+  line-height: 1.4;
+}
+
+.title {
+  font-size: inherit;
+
+  .artist {
+    display: block;
+  }
+
+  .track {
+    color: var(--grey);
+    display: block;
+    font-weight: 400;
+  }
+}
+
+.details {
+  display: flex;
+  flex-flow: column;
+  align-items: flex-start;
+  font-size: var(--caption);
+  white-space: nowrap;
+  color: var(--grey);
+  margin: calc(var(--caption) / 2) 0 0;
+
+  @mixin breakpoint-medium {
+    font-size: var(--h6);
+  }
+
+  .date,
+  .author {
+    margin: 0;
+  }
+
+  .date {
+    font-size: var(--caption);
+    opacity: 0.8;
+  }
+
+  .author {
+    text-decoration: none;
+    color: inherit;
+  }
+}

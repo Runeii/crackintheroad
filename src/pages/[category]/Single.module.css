@@ -1,0 +1,37 @@
+.page {
+  display: grid;
+  grid-template-areas:
+    "header header header"
+    "spacel content spacer";
+  grid-template-columns: 1fr 100% 1fr;
+  row-gap: 36px;
+
+  @mixin breakpoint-small {
+    grid-template-columns: 1fr 84% 1fr;
+  }
+
+  @mixin breakpoint-medium {
+    grid-template-columns: 1fr 66% 1fr;
+    row-gap: 64px;
+  }
+}
+
+.header {
+  grid-area: header;
+}
+
+.image {
+  grid-area: image;
+}
+
+.title {
+  grid-area: title;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  grid-area: content;
+  font-size: var(--h5);
+}

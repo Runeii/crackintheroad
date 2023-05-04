@@ -1,0 +1,39 @@
+.page {
+  padding-top: 24px;
+}
+
+.posts {
+  grid-area: posts;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  row-gap: 48px;
+  column-gap: 36px;
+  font-size: var(--h6);
+
+  @mixin breakpoint-small {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+
+  @mixin breakpoint-medium {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+
+  @mixin breakpoint-large {
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  }
+
+  .tile {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: inherit;
+    text-decoration: none;
+  }
+}
+
+.paginator {
+  height: 1px;
+  width: 100%;
+  opacity: 0;
+  visibility: hidden;
+}
