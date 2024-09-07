@@ -8,4 +8,4 @@ Small fixes that could be tackled one day:
 
 - [ ] Add notice that shows last time snapshot shuffled
 
-- [ ] Hit Netlify webhook once per week
+- [x] Hit Netlify webhook once per week
